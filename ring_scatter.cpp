@@ -18,7 +18,7 @@ int main ( int argc , char * argv []) {
     }
     
     for (int i =1; i < size; i++){
-      printf("process 0 is sending value %d to process %d intended for process %d\n",values[size-1-i],1,size-1-i);
+      printf("process 0 is sending value %d to process %d intended for process %d\n",values[size-1-i],1,size-i);
       MPI_Isend(&values[size-1-i],1,MPI_INT,1,0,MPI_COMM_WORLD,&request);
     }
   }
