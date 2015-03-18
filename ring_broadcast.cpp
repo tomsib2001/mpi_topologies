@@ -23,10 +23,8 @@ int main ( int argc , char * argv []) {
   int rank , value , size ;
   if (argc == 2)
     value = atoi(argv[1]);
-  else{
-    cout << "no value given as input, setting value to default value: 42" << endl;
-    value = 42;
-  }
+  else
+    value = rand % 1001;
   MPI_Status status ;
   MPI_Init (& argc , & argv ) ;
   MPI_Comm_rank ( MPI_COMM_WORLD , &rank ) ;
