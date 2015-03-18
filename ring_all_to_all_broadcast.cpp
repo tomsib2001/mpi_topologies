@@ -13,10 +13,14 @@ int main ( int argc , char * argv []) {
   MPI_Comm_size ( MPI_COMM_WORLD , &size ) ;
   MPI_Request request;
   
+  char processor_name[MPI_MAX_PROCESSOR_NAME];
+  int name_len;
+  MPI_Get_processor_name(processor_name, &name_len);
+  
   srand(2*rank);
   // initialize value
   int send_value = rand() % 1001;;
-  printf("I am process %d and my value is %d\n",rank,send_value);
+  printf("I am process %d on host %s and my value is %d\n",rank,processor_name,send_value);
   int received_values[size];
   received_values[rank] = send_value; //optional, to distinguish this cell as useless
   for(int i=0; i<size; i++){
