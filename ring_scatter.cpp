@@ -12,7 +12,7 @@ int main ( int argc , char * argv []) {
   MPI_Request request;
   
   if (rank == 0){
-    int values[size];
+    int values[size-1];
     for(int i=0;i<size;i++){
       values[i]=i*i;
     }
